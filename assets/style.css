@@ -1,0 +1,29 @@
+.container{
+    margin-top: 10%;
+    margin-left: 35%;
+    text-align: center;
+    padding-right: 15px;
+    padding-left: 15px;
+    background-color: palevioletred;
+    width: 25%;
+    height: 25%;
+    border: solid;
+    border-radius: 10px;
+}
+
+.reponse {
+    display: flex;
+    justify-content: space-around;
+    margin: 2em;
+}
+
+#rep1,
+#rep2,
+#rep3,
+#rep4{
+    cursor: pointer;
+    padding: 10px;
+    margin: 10px;
+    border: solid 2px;
+    border-radius: 10px;
+}
