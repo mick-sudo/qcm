@@ -73,7 +73,13 @@ function next (){
     console.log(value)
     if(value === 0){
         loadQuestion();
+    }else{
+        score()
     }
+}
+
+function score(){
+   console.log("fini");
 }
 
 for (const iterator of table) {
