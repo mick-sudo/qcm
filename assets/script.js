@@ -1,3 +1,9 @@
+/**
+ * C'est un jeu-questionnaire qui affiche une question et 4 réponses, et lorsque vous cliquez sur l'une
+ * des réponses, il vérifie si c'est la bonne, et si c'est le cas, il ajoute 1 au score, et si ce n'est
+ * pas le cas, il ne le fait pas. rien ajouter au score.
+ * @returns La bonne réponse est "japon"
+ */
 let data = [
     {
         question: "Quel pays est associé au samourai",
@@ -34,10 +40,17 @@ let rep1 = document.getElementById("rep1");
 let rep2 = document.getElementById("rep2");
 let rep3 = document.getElementById("rep3");
 let rep4 = document.getElementById("rep4");
+let resultat = document.getElementById("resultat");
+let container = document.querySelector(".container");
 const table = [rep1, rep2, rep3, rep4]
-
+let choices = [];
 console.log(data);
-
+console.log(choices.length);
+/**
+ * Si la valeur de la variable "value" est égale à 0, alors la fonction "loadQuestion" est appelée,
+ * sinon, si la valeur de la variable "value" est égale à 1, alors la fonction "end" est appelée.
+ */
+let score = 0;
 
 function loadQuestion() {
 
@@ -68,23 +81,46 @@ function checked (){
     return checked;
 };
 
-function next (){
+function next (e){
+    choices.push(e.target.textContent);
+    console.log(choices);
     let value = checked();
-    console.log(value)
+    //console.log(value)
+    for (const key in data) {
+        //console.log(data[key].correct);
+        if(e.target.textContent === data[key].correct){
+            score++;
+            console.log(e);
+        }
+    }
     if(value === 0){
+        console.log(data.correct);
         loadQuestion();
     }else{
-        score()
+        end()
+        console.log(score);
     }
 }
 
-function score(){
-   console.log("fini");
+function end(){
+    if(data.length <= choices.length){
+        container.style.display = "none"
+        console.log("fini");
+        resultat.innerText= "Votre score est de: " + score;
+    }
 }
 
 for (const iterator of table) {
-    iterator.addEventListener("click", next);
+    iterator.addEventListener("click", (e) =>{
+        next(e);
+    });
+
   }
+
+
+function compte(e) {
+    
+}
 
 //   function next2(){
 //     for(const iterator of data){
@@ -93,3 +129,4 @@ for (const iterator of table) {
 //         }
 //     }
 //   }
+
