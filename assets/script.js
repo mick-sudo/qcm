@@ -116,17 +116,3 @@ for (const iterator of table) {
     });
 
   }
-
-
-function compte(e) {
-    
-}
-
-//   function next2(){
-//     for(const iterator of data){
-//         if(iterator.active === true){
-//             loadQuestion()
-//         }
-//     }
-//   }
-
